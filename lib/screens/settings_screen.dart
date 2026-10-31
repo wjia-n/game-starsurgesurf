@@ -41,8 +41,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       backgroundColor: c.darkColor,
       appBar: AppBar(title: const Text('Settings'), backgroundColor: c.primaryColor, foregroundColor: Colors.white),
       body: ListView(padding: const EdgeInsets.all(16), children: [
-              TransferSaveTile(gameSlug: 'starsurgesurf'),
-        const Text('PLAYER NAME', style: TextStyle(color: Colors.white54, fontSize: 12)),
+        const Text('PLAYER NAME', textAlign: TextAlign.center, style: TextStyle(color: Colors.white54, fontSize: 12)),
         const SizedBox(height: 6),
         TextField(controller: _nameCtrl, style: const TextStyle(color: Colors.white),
           decoration: InputDecoration(filled: true, fillColor: Colors.white10, hintText: 'Your name',
@@ -50,7 +49,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             border: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide.none)),
           onChanged: (v) { playerName = v; _svc.setPlayerName(v); }),
         const SizedBox(height: 16),
-        const Text('DIFFICULTY', style: TextStyle(color: Colors.white54, fontSize: 12)),
+        const Text('DIFFICULTY', textAlign: TextAlign.center, style: TextStyle(color: Colors.white54, fontSize: 12)),
         const SizedBox(height: 6),
         Row(children: List.generate(3, (i) => Expanded(child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 4),
@@ -92,7 +91,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             );
           }),
         const SizedBox(height: 16),
-        const Text('PLAYER SHAPE', style: TextStyle(color: Colors.white54, fontSize: 12)),
+        const Text('PLAYER SHAPE', textAlign: TextAlign.center, style: TextStyle(color: Colors.white54, fontSize: 12)),
         const SizedBox(height: 6),
         Row(children: List.generate(arcShapes.length, (i) => Expanded(child: GestureDetector(
           onTap: () { setState(() => shapeIdx = i); _svc.setShape(i); },
@@ -123,6 +122,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
           const SizedBox(height: 6),
           Text(c.howTo, style: const TextStyle(color: Colors.white70)),
         ]))),
+        const SizedBox(height: 16),
+        TransferSaveTile(gameSlug: 'starsurgesurf'),
       ]),
     );
   }
